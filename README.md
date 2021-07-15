@@ -1,6 +1,7 @@
-# crypto_tracker
+# Crypto Tracker
 
-A new Flutter project.
+Flutter Project for CS 360 - Developing Mobile Applications
+
 
 ## Getting Started
 
