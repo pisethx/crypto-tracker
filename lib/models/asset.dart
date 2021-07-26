@@ -6,6 +6,7 @@ class Asset {
   String primaryAsset;
   String secondaryAsset;
   double amount;
+  double price;
   double percentageChange;
   Timestamp created;
   String docId;
@@ -30,10 +31,12 @@ class Asset {
       String secondaryAsset = 'USDT',
       Timestamp created,
       String docId,
+      double price,
       @required double amount}) {
     this.primaryAsset = primaryAsset;
     this.secondaryAsset = secondaryAsset;
     this.amount = amount;
+    this.price = price;
     this.created = created;
     this.docId = docId;
   }
@@ -42,6 +45,7 @@ class Asset {
       : primaryAsset = json['primaryAsset'],
         secondaryAsset = json['secondaryAsset'],
         amount = json['amount'],
+        price = json['price'],
         created = json['created'];
 
   Map<String, dynamic> toJson() {
@@ -49,6 +53,7 @@ class Asset {
       'primaryAsset': this.primaryAsset,
       'secondaryAsset': this.secondaryAsset,
       'amount': this.amount,
+      'price': this.price,
       'created': this.created
     };
   }

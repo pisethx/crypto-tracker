@@ -132,9 +132,9 @@ class _HomeTabState extends State<HomeTab> {
                               loading: _isLoading,
                               label: 'Add Transaction',
                               onPressed: () {
-                                if (amount <= 0 || pricePerAsset <= 0) return;
+                                if (amount <= 0 || pricePerAsset < 0) return;
 
-                                // Sell more than you own
+                                // Cannot sell more than you own
                                 if (type == TransactionType.SELL && amount > crypto.assetAmount) return;
 
                                 setState(() {

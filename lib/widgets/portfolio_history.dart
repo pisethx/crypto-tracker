@@ -22,13 +22,11 @@ class PortfolioHistory extends StatefulWidget {
 }
 
 class _PortfolioHistoryState extends State<PortfolioHistory> {
-  Map<String, double> assetPrices = {};
   Map<String, String> assetNames = {};
   Map<String, String> assetLogos = {};
 
   void initAssetPrice() async {
     List<dynamic> cryptos = await fetchCrypto();
-    assetPrices = {for (var crypto in cryptos) crypto.id: crypto.price};
     assetNames = {for (var crypto in cryptos) crypto.id: crypto.name};
     assetLogos = {for (var crypto in cryptos) crypto.id: crypto.logo};
   }
@@ -108,6 +106,7 @@ class _PortfolioHistoryState extends State<PortfolioHistory> {
             return Asset(
                 primaryAsset: transaction['asset'],
                 amount: transaction['amount'].toDouble(),
+                price: transaction['price'].toDouble(),
                 created: transaction['created'],
                 docId: qShot.id);
           }).toList();
@@ -117,11 +116,10 @@ class _PortfolioHistoryState extends State<PortfolioHistory> {
             itemBuilder: (context, index) {
               Asset asset = assets[index];
               String primaryAsset = asset.primaryAsset;
-              // String secondaryAsset = asset.secondaryAsset;
               String name = assetNames[asset.primaryAsset];
               double amount = asset.amount;
+              double purchasedPrice = asset.price * asset.amount;
               String logo = assetLogos[primaryAsset];
-              double assetPrice = amount * assetPrices[primaryAsset];
 
               return ListTile(
                 onTap: () => _showTransactionInfo(asset),
@@ -147,13 +145,13 @@ class _PortfolioHistoryState extends State<PortfolioHistory> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Text(
-                      formatCurrency(amount: assetPrice),
+                      formatCurrency(amount: purchasedPrice),
                       style: kContentTextStyle,
                     ),
                     SizedBox(height: 3),
                     Text(
                       formatTransactionAmount(amount: amount, asset: primaryAsset),
-                      style: kCaptionTextStyle.copyWith(color: assetPrice > 0 ? kIncomeColor : kExpenseColor),
+                      style: kCaptionTextStyle.copyWith(color: purchasedPrice > 0 ? kIncomeColor : kExpenseColor),
                     )
                   ],
                 ),
