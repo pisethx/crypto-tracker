@@ -46,8 +46,13 @@ class _PortfolioCardState extends State<PortfolioCard> {
             snapshotData[transaction['asset']] += transaction['amount'];
           }
 
-          List<Asset> assets =
-              snapshotData.entries.map((entry) => Asset(primaryAsset: entry.key, amount: entry.value)).toList();
+          List<Asset> assets = snapshotData.entries
+              .map((entry) => Asset(primaryAsset: entry.key, amount: entry.value))
+              .where((asset) => asset.amount > 0)
+              .toList();
+
+          assets.sort(
+              (a, b) => (b.amount * assetPrices[b.primaryAsset]).compareTo((a.amount * assetPrices[a.primaryAsset])));
 
           return ListView.builder(
             scrollDirection: Axis.horizontal,

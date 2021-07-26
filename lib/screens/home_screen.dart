@@ -80,7 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         _buildCryptoInfoRow(title: "Circulating Supply", value: crypto.circulatingSupply),
                         _buildCryptoInfoRow(title: "Max Supply", value: crypto.maxSupply),
                         SizedBox(height: 30),
-                        Sparkline(data: prices, lineColor: kExpenseColor, fallbackHeight: 200),
+                        Sparkline(
+                            data: prices,
+                            lineColor: double.tryParse(crypto.priceChangePercentage) > 0 ? kIncomeColor : kExpenseColor,
+                            fallbackHeight: 200),
                       ],
                     )),
               ],

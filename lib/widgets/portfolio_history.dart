@@ -51,7 +51,7 @@ class _PortfolioHistoryState extends State<PortfolioHistory> {
         ),
         builder: (context) {
           return Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0).copyWith(bottom: 0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.start,

@@ -57,7 +57,8 @@ class _HomeTabState extends State<HomeTab> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text('My Portfolio', style: kSubtitleTextStyle),
-            Container(height: 160.0, padding: EdgeInsets.all(5.0), child: PortfolioCard())
+            Container(
+                height: 160.0, margin: EdgeInsets.only(top: 20.0), padding: EdgeInsets.all(5.0), child: PortfolioCard())
           ],
         ),
       );
