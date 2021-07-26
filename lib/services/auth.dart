@@ -8,8 +8,7 @@ class FakeUser {
   }
 
   String get photoURL {
-    return 'https://pbs.twimg.com/profile_images/1413195968883924995/2UhV0Ii6_400x400.jpg' ??
-        'https://static.coindesk.com/wp-content/uploads/2021/04/dogecoin.jpg';
+    return 'https://pbs.twimg.com/profile_images/1416908024380149761/8eCx7XKR_400x400.jpg';
   }
 }
 
@@ -26,8 +25,12 @@ class AuthService {
     return _user;
   }
 
-  static _setUser(user) {
+  static setUser(user) {
     _user = user;
+  }
+
+  static removeUser() {
+    _user = _fakeUser;
   }
 
   static Future<UserCredential> signInWithTwitter() async {
@@ -53,7 +56,7 @@ class AuthService {
       // Once signed in, return the UserCredential
       final response = await FirebaseAuth.instance.signInWithCredential(twitterAuthCredential);
 
-      _setUser(FirebaseAuth.instance.currentUser);
+      setUser(FirebaseAuth.instance.currentUser);
 
       return response;
     }
@@ -62,7 +65,7 @@ class AuthService {
   static Future<void> signOut() async {
     final response = await FirebaseAuth.instance.signOut();
 
-    _setUser(_fakeUser);
+    removeUser();
 
     return response;
   }

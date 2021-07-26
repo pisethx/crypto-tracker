@@ -1,8 +1,8 @@
-import 'package:crypto_tracker/widgets/outlined_text_field.dart';
-import 'package:crypto_tracker/widgets/primary_button.dart';
+// import 'package:crypto_tracker/widgets/outlined_text_field.dart';
+// import 'package:crypto_tracker/widgets/primary_button.dart';
+// import 'package:crypto_tracker/screens/home_screen.dart';
 import 'package:crypto_tracker/widgets/sign_in.dart';
 import 'package:flutter/material.dart';
-import 'package:crypto_tracker/screens/home_screen.dart';
 import 'package:crypto_tracker/constants/style.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -22,42 +22,44 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                'Sign in to Crypto Tracker',
-                style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 30.0),
-              OutlinedTextField(
-                labelText: 'Email',
-                hintText: 'you@example.com',
-              ),
-              SizedBox(height: 30.0),
-              OutlinedTextField(
-                labelText: 'Password',
-                hintText: '*********',
-              ),
-              SizedBox(height: 30.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Forgot Password',
-                    style: kPrimaryTextStyle,
-                  ),
-                  Text(
-                    'Privacy Policy',
-                    style: kPrimaryTextStyle,
-                  )
-                ],
-              ),
+              // Text(
+              //   'Sign in to Crypto Tracker',
+              //   style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+              // ),
+              // SizedBox(height: 30.0),
+              // OutlinedTextField(
+              //   labelText: 'Email',
+              //   hintText: 'you@example.com',
+              // ),
+              // SizedBox(height: 30.0),
+              // OutlinedTextField(
+              //   labelText: 'Password',
+              //   hintText: '*********',
+              // ),
+              // SizedBox(height: 30.0),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: [
+              //     Text(
+              //       'Forgot Password',
+              //       style: kPrimaryTextStyle,
+              //     ),
+              //     Text(
+              //       'Privacy Policy',
+              //       style: kPrimaryTextStyle,
+              //     )
+              //   ],
+              // ),
+              SizedBox(height: 80.0),
+              Image.asset('assets/nano.png', width: 150, height: 200),
               Spacer(),
               SignInButton(),
-              PrimaryButton(
-                label: 'Sign in',
-                onPressed: () {
-                  Navigator.pushNamed(context, HomeScreen.id);
-                },
-              ),
+              // PrimaryButton(
+              //   label: 'Sign in',
+              //   onPressed: () {
+              //     Navigator.pushNamed(context, HomeScreen.id);
+              //   },
+              // ),
             ],
           ),
         ),

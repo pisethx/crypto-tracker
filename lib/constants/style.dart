@@ -5,8 +5,10 @@ final Color kPrimaryColor = Color(0xFF2B52DB);
 final Color kLightGrayColor = Colors.grey[400];
 final Color kGrayColor = Colors.grey[600];
 final Color kDarkGrayColor = Colors.grey[800];
-final Color kIncomeColor = Color(0xFF2B52DB);
-final Color kExpenseColor = Color(0xFF32A0DF);
+// final Color kIncomeColor = Color(0xFF2B52DB);
+// final Color kExpenseColor = Color(0xFF32A0DF);
+final Color kIncomeColor = Colors.greenAccent[400];
+final Color kExpenseColor = Colors.redAccent;
 final Color kScaffoldBackgroundColor = Color(0xFFF8FAFD);
 
 const kScreenMargin = EdgeInsets.only(left: 20.0, right: 20.0);
@@ -81,6 +83,8 @@ final TextStyle kButtonTextStyle = TextStyle(fontWeight: FontWeight.bold, fontSi
 final TextStyle kPrimaryTextStyle = kButtonTextStyle.copyWith(color: kPrimaryColor);
 final TextStyle kTitleTextStyle = TextStyle(color: kDarkGrayColor, fontSize: 24.0);
 final TextStyle kSubtitleTextStyle = TextStyle(color: kDarkGrayColor, fontSize: 18.0, fontWeight: FontWeight.w600);
+final TextStyle kContentTextStyle = TextStyle(color: kDarkGrayColor, fontSize: 16.0, fontWeight: FontWeight.w600);
+final TextStyle kCaptionTextStyle = TextStyle(color: kGrayColor, fontSize: 14.0);
 final TextStyle kSubtitleAmountStyle = TextStyle(color: kDarkGrayColor, fontSize: 20.0, fontWeight: FontWeight.bold);
 
 final ButtonStyle elevatedButtonStyle = ButtonStyle(

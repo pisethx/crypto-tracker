@@ -1,7 +1,9 @@
 import 'package:crypto_tracker/constants/style.dart';
+import 'package:crypto_tracker/constants/helper.dart';
 import 'package:crypto_tracker/screens/home_screen.dart';
 import 'package:crypto_tracker/screens/login_screen.dart';
 import 'package:crypto_tracker/services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:async';
@@ -17,12 +19,17 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+
+    fetchCrypto();
     Timer(
       Duration(seconds: 2),
-      () => {
-        (AuthService.isAuthenticated)
-            ? Navigator.pushNamed(context, HomeScreen.id)
-            : Navigator.pushNamed(context, LoginScreen.id)
+      () {
+        FirebaseAuth.instance.authStateChanges().listen((User user) {
+          if (user == null)
+            Navigator.pushReplacementNamed(context, LoginScreen.id);
+          else
+            Navigator.pushReplacementNamed(context, HomeScreen.id);
+        });
       },
     );
   }

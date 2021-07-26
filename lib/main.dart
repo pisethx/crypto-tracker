@@ -1,6 +1,7 @@
 import 'package:crypto_tracker/constants/style.dart';
+import 'package:crypto_tracker/services/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:crypto_tracker/screens/home_screen.dart';
 import 'package:crypto_tracker/screens/login_screen.dart';
 import 'package:crypto_tracker/screens/splash_screen.dart';
@@ -11,13 +12,18 @@ Future main() async {
   await dotenv.load(fileName: ".env");
   await Firebase.initializeApp();
 
+  FirebaseAuth.instance.authStateChanges().listen((User user) {
+    if (user == null) return AuthService.removeUser();
+    return AuthService.setUser(FirebaseAuth.instance.currentUser);
+  });
+
   runApp(CryptoTracker());
 }
 
 class CryptoTracker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([]);
+    // SystemChrome.setEnabledSystemUIOverlays([]);
 
     return MaterialApp(
       title: 'Crypto Tracker',

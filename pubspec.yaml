@@ -43,8 +43,13 @@ dependencies:
   # util widgets
   flutter_svg: ^0.22.0
   speed_dial_fab: ^2.1.1
-  flutter_native_splash: ^1.2.0
-
+  flutter_native_splash: ^1.2.0 
+  cached_network_image: ^3.0.0
+  flutter_sparkline: ^0.1.0
+  auto_size_text_field: ^0.1.7
+  pull_to_refresh: ^2.0.0
+  pie_chart: ^5.0.0 
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

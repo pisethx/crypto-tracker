@@ -1,4 +1,3 @@
-import 'package:crypto_tracker/constants/style.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 

@@ -1,4 +1,5 @@
 import 'package:crypto_tracker/screens/home_screen.dart';
+import 'package:crypto_tracker/services/database.dart';
 import 'package:crypto_tracker/widgets/primary_button.dart';
 import 'package:crypto_tracker/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,20 +18,22 @@ class _SignInButtonState extends State<SignInButton> {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: PrimaryButton(
+        loading: _isSigningIn,
+        icon: Icon(Icons.login),
         label: 'Sign in with Twitter',
         onPressed: () async {
           setState(() {
             _isSigningIn = true;
           });
           UserCredential user = await AuthService.signInWithTwitter();
-
           setState(() {
             _isSigningIn = false;
           });
 
           if (user != null) {
-            print(AuthService.currentUser);
-            return Navigator.pushNamed(context, HomeScreen.id);
+            Database.userUid = user.user.uid;
+
+            return Navigator.pushReplacementNamed(context, HomeScreen.id);
           }
 
           // if (user != null) {
