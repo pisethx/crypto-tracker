@@ -1,3 +1,4 @@
+import 'package:crypto_tracker/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -27,6 +28,7 @@ class AuthService {
 
   static setUser(user) {
     _user = user;
+    Database.userUid = user.uid;
   }
 
   static removeUser() {

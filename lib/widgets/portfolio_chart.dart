@@ -62,8 +62,10 @@ class _PortfolioChartState extends State<PortfolioChart> {
             snapshotData[transaction['asset']] += transaction['amount'];
           }
 
-          List<Asset> assets =
-              snapshotData.entries.map((entry) => Asset(primaryAsset: entry.key, amount: entry.value)).toList();
+          List<Asset> assets = snapshotData.entries
+              .map((entry) => Asset(primaryAsset: entry.key, amount: entry.value))
+              .where((asset) => asset.amount > 0)
+              .toList();
 
           final _unsortedPortfolioData = {
             for (Asset asset in assets)

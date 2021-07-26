@@ -30,11 +30,7 @@ class _SignInButtonState extends State<SignInButton> {
             _isSigningIn = false;
           });
 
-          if (user != null) {
-            Database.userUid = user.user.uid;
-
-            return Navigator.pushReplacementNamed(context, HomeScreen.id);
-          }
+          if (user != null) return Navigator.pushReplacementNamed(context, HomeScreen.id);
 
           // if (user != null) {
           //   Navigator.of(context).pushReplacement(

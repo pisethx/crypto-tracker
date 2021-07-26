@@ -48,7 +48,7 @@ class _CryptoTileState extends State<CryptoTile> {
             children: [
               Text(
                 id,
-                style: TextStyle(color: kGrayColor, fontSize: 14.0),
+                style: kCaptionTextStyle.copyWith(color: kGrayColor),
               ),
               Container(
                 margin: EdgeInsets.only(left: 6),
@@ -74,7 +74,7 @@ class _CryptoTileState extends State<CryptoTile> {
           Text(
             formatCurrency(amount: price),
             textAlign: TextAlign.right,
-            style: TextStyle(color: kDarkGrayColor, fontSize: 16.0),
+            style: kContentTextStyle,
           ),
           SizedBox(height: 3.0),
           Text(

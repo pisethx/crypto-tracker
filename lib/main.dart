@@ -30,6 +30,7 @@ class CryptoTracker extends StatelessWidget {
       theme: ThemeData(
         primaryColor: kPrimaryColor,
         accentColor: Colors.grey,
+        fontFamily: 'Nunito',
         scaffoldBackgroundColor: kScaffoldBackgroundColor,
         textTheme: TextTheme(
           bodyText1: TextStyle(),

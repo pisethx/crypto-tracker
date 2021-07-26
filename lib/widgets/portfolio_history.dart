@@ -135,9 +135,12 @@ class _PortfolioHistoryState extends State<PortfolioHistory> {
                 title: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(name, style: kContentTextStyle),
-                    SizedBox(height: 4),
-                    Text(primaryAsset, style: kCaptionTextStyle.copyWith(color: kLightGrayColor)),
+                    Text(
+                      name,
+                      style: TextStyle(color: kDarkGrayColor),
+                    ),
+                    SizedBox(height: 3),
+                    Text(primaryAsset, style: kCaptionTextStyle.copyWith(color: kGrayColor)),
                   ],
                 ),
                 trailing: Column(
@@ -145,9 +148,9 @@ class _PortfolioHistoryState extends State<PortfolioHistory> {
                   children: [
                     Text(
                       formatCurrency(amount: assetPrice),
-                      style: kCaptionTextStyle.copyWith(color: kGrayColor, fontWeight: FontWeight.bold),
+                      style: kContentTextStyle,
                     ),
-                    SizedBox(height: 4),
+                    SizedBox(height: 3),
                     Text(
                       formatTransactionAmount(amount: amount, asset: primaryAsset),
                       style: kCaptionTextStyle.copyWith(color: assetPrice > 0 ? kIncomeColor : kExpenseColor),

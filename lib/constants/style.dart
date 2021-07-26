@@ -83,7 +83,7 @@ final TextStyle kButtonTextStyle = TextStyle(fontWeight: FontWeight.bold, fontSi
 final TextStyle kPrimaryTextStyle = kButtonTextStyle.copyWith(color: kPrimaryColor);
 final TextStyle kTitleTextStyle = TextStyle(color: kDarkGrayColor, fontSize: 24.0);
 final TextStyle kSubtitleTextStyle = TextStyle(color: kDarkGrayColor, fontSize: 18.0, fontWeight: FontWeight.w600);
-final TextStyle kContentTextStyle = TextStyle(color: kDarkGrayColor, fontSize: 16.0, fontWeight: FontWeight.w600);
+final TextStyle kContentTextStyle = TextStyle(color: kGrayColor, fontSize: 16.0, fontWeight: FontWeight.w600);
 final TextStyle kCaptionTextStyle = TextStyle(color: kGrayColor, fontSize: 14.0);
 final TextStyle kSubtitleAmountStyle = TextStyle(color: kDarkGrayColor, fontSize: 20.0, fontWeight: FontWeight.bold);
 

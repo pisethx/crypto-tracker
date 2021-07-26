@@ -82,7 +82,7 @@ class _BalanceCardState extends State<BalanceCard> {
                   formatCurrency(amount: balance),
                   style: TextStyle(fontSize: 30.0, color: Colors.white, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 24.0),
+                SizedBox(height: 16.0),
                 Text('Profit / Loss', style: TextStyle(color: Colors.white, fontSize: 12.0)),
                 SizedBox(height: 2.0),
                 Row(

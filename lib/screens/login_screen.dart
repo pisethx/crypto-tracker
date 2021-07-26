@@ -18,8 +18,9 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          padding: kScreenPadding.copyWith(top: 40.0),
+          padding: kScreenPadding.copyWith(top: 40.0, bottom: 0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               // Text(
@@ -52,6 +53,15 @@ class _LoginScreenState extends State<LoginScreen> {
               // ),
               SizedBox(height: 80.0),
               Image.asset('assets/nano.png', width: 150, height: 200),
+              Align(
+                alignment: Alignment.center,
+                child: Text(
+                  'CRYPTO TRACKER',
+                  style: kTitleTextStyle.copyWith(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
               Spacer(),
               SignInButton(),
               // PrimaryButton(

@@ -15,12 +15,16 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
+void initFirebase() async {
+  await fetchCrypto('', true);
+}
+
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    initFirebase();
 
-    fetchCrypto();
     Timer(
       Duration(seconds: 2),
       () {
