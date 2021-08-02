@@ -12,7 +12,7 @@ Future main() async {
   await dotenv.load(fileName: ".env");
   await Firebase.initializeApp();
 
-  FirebaseAuth.instance.authStateChanges().listen((User user) {
+  FirebaseAuth.instance.idTokenChanges().listen((User user) {
     if (user == null) return AuthService.removeUser();
     return AuthService.setUser(FirebaseAuth.instance.currentUser);
   });
