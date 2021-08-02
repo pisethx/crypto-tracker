@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:crypto_tracker/constants/helper.dart';
 import 'package:crypto_tracker/constants/style.dart';
 import 'package:crypto_tracker/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,10 +15,7 @@ Future main() async {
   await dotenv.load(fileName: ".env");
   await Firebase.initializeApp();
 
-  FirebaseAuth.instance.idTokenChanges().listen((User user) {
-    if (user == null) return AuthService.removeUser();
-    return AuthService.setUser(FirebaseAuth.instance.currentUser);
-  });
+  await fetchCrypto('', true);
 
   runApp(CryptoTracker());
 }

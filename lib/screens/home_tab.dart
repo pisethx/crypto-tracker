@@ -243,7 +243,7 @@ class _HomeTabState extends State<HomeTab> {
 }
 
 class UserProfile extends StatelessWidget {
-  const UserProfile({Key key}) : super(key: key);
+  const UserProfile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -261,9 +261,9 @@ class UserProfile extends StatelessWidget {
             ],
           ),
           CircleAvatar(
-            radius: 30.0,
+            radius: 30,
             backgroundImage: NetworkImage(AuthService.currentUser.photoURL),
-          ),
+          )
         ],
       ),
     );

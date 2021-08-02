@@ -39,7 +39,7 @@ Future<List<Crypto>> fetchCrypto([String keyword = '', bool force = false]) asyn
     // final response4 = await fetchCryptoPerPage(page: 4);
     // final response5 = await fetchCryptoPerPage(page: 5);
 
-    if (result.length > 0) result = (response1 + response2);
+    if (response1.length > 0) result = (response1 + response2);
 
     await setSharedPreferences('CRYPTO', result);
   }

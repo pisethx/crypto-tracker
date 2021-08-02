@@ -9,7 +9,7 @@ class FakeUser {
   }
 
   String get photoURL {
-    return 'https://pbs.twimg.com/profile_images/1416908024380149761/8eCx7XKR_400x400.jpg';
+    return 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqKOE5A-kQb2c5yJS88yGax-cTwn609D3GGH2myGwPU-H_bTVOU3Hq9GaEmtFh6uU_UIY&usqp=CAU';
   }
 }
 
@@ -58,6 +58,8 @@ class AuthService {
       // Once signed in, return the UserCredential
       final response = await FirebaseAuth.instance.signInWithCredential(twitterAuthCredential);
 
+      print(response);
+
       setUser(FirebaseAuth.instance.currentUser);
 
       return response;
@@ -66,8 +68,6 @@ class AuthService {
 
   static Future<void> signOut() async {
     final response = await FirebaseAuth.instance.signOut();
-
-    removeUser();
 
     return response;
   }

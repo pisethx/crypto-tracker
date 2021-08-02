@@ -19,7 +19,10 @@ class ProfileTab extends StatelessWidget {
               child: Column(
                 children: [
                   Container(
-                    child: NetworkPicture(radius: 60, url: AuthService.currentUser.photoURL),
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage(AuthService.currentUser.photoURL),
+                    ),
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(

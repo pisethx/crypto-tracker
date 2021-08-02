@@ -15,27 +15,35 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-void initFirebase() async {
-  await fetchCrypto('', true);
-}
-
 class _SplashScreenState extends State<SplashScreen> {
+  StreamSubscription<User> _listener;
+
   @override
   void initState() {
     super.initState();
-    initFirebase();
 
     Timer(
       Duration(seconds: 2),
       () {
-        FirebaseAuth.instance.authStateChanges().listen((User user) {
-          if (user == null)
-            Navigator.pushReplacementNamed(context, LoginScreen.id);
-          else
+        _listener = FirebaseAuth.instance.userChanges().listen((User user) async {
+          bool _isLoggedIn = user is User;
+
+          if (_isLoggedIn) {
+            await user.reload();
+            AuthService.setUser(user);
             Navigator.pushReplacementNamed(context, HomeScreen.id);
+          } else
+            Navigator.pushReplacementNamed(context, LoginScreen.id);
         });
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _listener.cancel();
+
+    super.dispose();
   }
 
   @override

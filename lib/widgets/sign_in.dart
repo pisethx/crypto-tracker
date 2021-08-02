@@ -1,5 +1,4 @@
 import 'package:crypto_tracker/screens/home_screen.dart';
-import 'package:crypto_tracker/services/database.dart';
 import 'package:crypto_tracker/widgets/primary_button.dart';
 import 'package:crypto_tracker/services/auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -31,16 +30,6 @@ class _SignInButtonState extends State<SignInButton> {
           });
 
           if (user != null) return Navigator.pushReplacementNamed(context, HomeScreen.id);
-
-          // if (user != null) {
-          //   Navigator.of(context).pushReplacement(
-          //     MaterialPageRoute(
-          //       builder: (context) => GUserInfoScreen(
-          //         user: user,
-          //       ),
-          //     ),
-          //   );
-          // }
         },
       ),
     );
